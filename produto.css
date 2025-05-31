@@ -1,3 +1,4 @@
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +12,11 @@ body {
 
 /* Barra superior preta */
 #barra-topo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
   background-color: #000;
   color: #fff;
   padding: 10px 20px;
@@ -19,10 +25,6 @@ body {
   align-items: center;
   font-size: 14px;
   flex-wrap: wrap;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 1000;
 }
 
 #barra-topo a {
@@ -68,86 +70,87 @@ body {
 }
 
 /* Conteúdo principal */
-#container {
-  width: 100%;
-  max-width: 900px;
-  margin: 120px auto 0;
-  padding: 0 24px;
-}
-
-#profile {
-  width: 100%;
+.produto-detalhe {
+  max-width: 1000px;
+  margin: 120px auto 40px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 0;
-}
-
-#profile img {
-  width: 300px;
-  height: auto;
-}
-
-#produtos {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-#produtos h2 {
-  margin-bottom: 20px;
-  font-size: 20px;
-}
-
-.grande-produtos {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.produto {
-  width: 200px;
-  padding: 10px;
+  gap: 40px;
+  padding: 20px;
   background-color: #fff;
-  border-radius: 8px;
-  transition: transform 0.3s;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.produto:hover {
-  transform: scale(1.03);
+.img-principal img {
+  width: 300px;
+  border-radius: 6px;
+  display: block;
+  margin: 0 auto;
 }
 
-.produto img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
+.info-produto {
+  flex: 1;
+}
+
+.info-produto h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.info-produto .preco {
+  font-size: 22px;
+  color: green;
+  font-weight: bold;
+}
+
+.info-produto .parcelado {
+  font-size: 14px;
+  color: #555;
+  margin: 5px 0 20px;
+}
+
+.tamanhos span {
+  display: inline-block;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  margin-right: 8px;
+  cursor: pointer;
   border-radius: 4px;
 }
 
-.nome {
-  font-weight: bold;
-  margin-top: 10px;
+.tamanhos span:hover {
+  background-color: #ddd;
 }
 
-.preco {
-  color: green;
-  margin: 5px 0;
-}
-
-.botao-comprar {
-  padding: 10px 16px;
+.tamanhos .ativo {
   background-color: green;
   color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
+  border-color: green;
 }
 
-.botao-comprar:hover {
-  background-color: #333;
+#botao-comprar-detalhado,
+#botao-adicionar-carrinho {
+  padding: 12px 20px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  display: block;
+  width: fit-content;
+}
+
+#botao-comprar-detalhado:hover,
+#botao-adicionar-carrinho:hover {
+  background-color: darkgreen;
+}
+
+.quantidade-container {
+  margin-top: 10px;
 }
 
 /* Carrinho */
@@ -156,20 +159,16 @@ body {
   background-color: #fff;
   padding: 30px;
   max-width: 500px;
-  margin: 120px auto;
+  margin: 40px auto;
   border-radius: 12px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
   font-size: 16px;
 }
 
-#carrinho.ativo {
-  display: block;
-}
-
 #carrinho h2 {
   font-size: 24px;
   margin-bottom: 20px;
-  text-align: center;
+  text-align: left;
 }
 
 #lista-carrinho li {
@@ -192,14 +191,14 @@ body {
 #total-carrinho {
   font-weight: bold;
   font-size: 18px;
-  text-align: right;
+  text-align: left;
   margin-top: 20px;
 }
 
-#botao-finalizar, #botao-voltar {
+#botao-finalizar,
+#botao-voltar {
   margin-top: 10px;
-  width: 100%;
-  padding: 12px;
+  padding: 10px 16px;
   font-weight: bold;
   border: none;
   border-radius: 6px;
@@ -224,17 +223,12 @@ body {
   background-color: #222;
 }
 
-/* Modo carrinho - esconde tudo, mostra só o carrinho */
-body.modo-carrinho #topo,
-body.modo-carrinho #container,
-body.modo-carrinho #produtos,
-body.modo-carrinho #mensagemNaoEncontrado {
-  display: none;
-}
-
+/* Exibe o carrinho apenas quando modo-carrinho estiver no body */
 body.modo-carrinho #carrinho {
   display: block;
 }
 
-
-
+/* Esconde o conteúdo quando carrinho estiver aberto (opcional) */
+body.modo-carrinho .produto-detalhe {
+  display: none;
+}
