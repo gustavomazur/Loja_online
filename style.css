@@ -26,7 +26,7 @@ body {
 }
 
 #barra-topo a {
-  color: #0af;
+  color: #fff;
   text-decoration: none;
   font-weight: bold;
   margin-left: 10px;
@@ -135,19 +135,50 @@ body {
   margin: 5px 0;
 }
 
-.botao-comprar {
+.botoes-produto {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.botao-comprar,
+.botao-adicionar-carrinho {
   padding: 10px 16px;
-  background-color: green;
   color: white;
   font-weight: bold;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s;
+  flex-grow: 1;
+}
+
+.botao-comprar {
+  background-color: #28a745; /* Verde mais vibrante */
+}
+
+.botao-adicionar-carrinho {
+  background-color: #333;
+  max-width: 50px;
+  flex-grow: 0;
 }
 
 .botao-comprar:hover {
-  background-color: #333;
+  background-color: #218838;
+}
+
+.botao-adicionar-carrinho:hover {
+  background-color: #555;
+}
+
+.botao-adicionar-carrinho.feedback {
+  animation: feedback-anim 0.4s ease-in-out;
+}
+
+@keyframes feedback-anim {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); background-color: #28a745; }
+  100% { transform: scale(1); }
 }
 
 /* Carrinho */
@@ -234,6 +265,205 @@ body.modo-carrinho #mensagemNaoEncontrado {
 
 body.modo-carrinho #carrinho {
   display: block;
+}
+
+.menu-categorias {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 20px 0 30px 0;
+}
+
+.categoria-btn {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  letter-spacing: 1px;
+}
+
+.categoria-btn.ativo,
+.categoria-btn:hover {
+  background: #fff;
+  color: #111;
+  border: 2px solid #fff;
+}
+
+.suporte-area {
+  text-align: center;
+  margin: 30px 0 10px 0;
+}
+
+.suporte-topo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  justify-content: flex-end;
+}
+
+.suporte-topo a {
+  display: flex;
+  align-items: center;
+  background: #25d366;
+  color: #fff;
+  font-weight: bold;
+  padding: 6px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 13px;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.suporte-topo a:hover {
+  background: #128c7e;
+}
+
+.suporte-topo img {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+}
+
+.rastreio-pedido {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 350px;
+  margin: 30px auto;
+  text-align: center;
+}
+.rastreio-pedido input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 8px;
+  width: 70%;
+}
+.rastreio-pedido button {
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  background: #0af;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.simulador-frete {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 350px;
+  margin: 30px auto;
+  text-align: center;
+}
+.simulador-frete input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 8px;
+  width: 70%;
+}
+.simulador-frete button {
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  background: #0af;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Estilos para telas menores (Responsividade) */
+@media (max-width: 768px) {
+  /* Barra do Topo */
+  #barra-topo {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 15px;
+    position: absolute; /* Para o conteúdo rolar por baixo */
+  }
+
+  #barra-topo .infos-usuario, 
+  #barra-topo .acoes-usuario {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  #barra-topo a {
+    margin: 0 5px;
+  }
+
+  .suporte-topo a {
+    justify-content: center;
+  }
+
+  #container {
+    margin-top: 230px; /* Aumenta a margem para acomodar a barra expandida */
+    padding: 0 15px;
+  }
+
+  /* Produtos */
+  .grande-produtos {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .produto {
+    width: 90%;
+    max-width: 350px;
+  }
+
+  /* Menu de categorias */
+  .menu-categorias {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .categoria-btn {
+    width: 100%;
+  }
+
+  /* Carrinho */
+  #carrinho {
+    width: 95%;
+    margin-top: 50px;
+    padding: 20px;
+  }
+  
+  body.modo-carrinho #carrinho {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ajustes para celulares pequenos */
+  #profile img {
+    width: 250px;
+  }
+
+  #produtos h2 {
+    font-size: 18px;
+  }
+
+  .suporte-topo a span {
+     display: none; /* Esconde o texto no botão do WhatsApp */
+  }
+
+  .suporte-topo a {
+    padding: 8px 12px;
+  }
 }
 
 

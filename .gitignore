@@ -1,0 +1,61 @@
+# ========================================
+# ARQUIVOS SENSÍVEIS - NÃO ENVIAR PARA GITHUB
+# ========================================
+
+# Arquivo de configuração com dados reais
+config.php
+
+# Arquivos de log
+*.log
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Arquivos de backup
+*.bak
+*.backup
+
+# Arquivos de sessão
+sessions/
+
+# Arquivos de cache
+cache/
+tmp/
+
+# Configurações do servidor
+.htaccess
+.htpasswd
+
+# Arquivos de ambiente
+.env
+
+# ========================================
+# PASTAS DE UPLOAD - OPICIONAL
+# ========================================
+
+# Se quiser proteger as imagens enviadas pelos usuários
+# imagens/uploads/
+# imagens/produtos/
+
+# ========================================
+# SISTEMA
+# ========================================
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ========================================
+# BANCO DE DADOS
+# ========================================
+
+# Dumps do banco (se houver)
+*.sql
+*.dump 

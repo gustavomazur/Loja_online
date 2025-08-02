@@ -1,0 +1,205 @@
+/* ESTILOS ESPECÍFICOS PARA A PÁGINA DE CADASTRO */
+
+/* Formulário de cadastro */
+#formulario-cadastro {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+#formulario-cadastro h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+/* Grupos de campos (nome e sobrenome lado a lado) */
+.grupo-campos {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.grupo-campos .campo {
+    flex: 1;
+}
+
+/* Campos individuais */
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+}
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo input[type="tel"],
+.campo input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.campo input:focus {
+    outline: none;
+    border-color: #0af;
+    box-shadow: 0 0 5px rgba(0, 170, 255, 0.3);
+}
+
+.campo small {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+    font-size: 12px;
+}
+
+/* Checkbox personalizado */
+.campo.checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.campo.checkbox input[type="checkbox"] {
+    margin-top: 3px;
+    width: 18px;
+    height: 18px;
+    accent-color: #0af;
+}
+
+.campo.checkbox label {
+    margin-bottom: 0;
+    font-weight: normal;
+    line-height: 1.4;
+}
+
+.campo.checkbox a {
+    color: #0af;
+    text-decoration: none;
+}
+
+.campo.checkbox a:hover {
+    text-decoration: underline;
+}
+
+/* Botões */
+.botoes-form {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.botao-cadastrar {
+    flex: 1;
+    padding: 15px;
+    background-color: #0af;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao-cadastrar:hover {
+    background-color: #0099cc;
+}
+
+.botao-cancelar {
+    flex: 1;
+    padding: 15px;
+    background-color: #666;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao-cancelar:hover {
+    background-color: #555;
+}
+
+/* Link para login */
+.ja-tem-conta {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+
+.ja-tem-conta a {
+    color: #0af;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.ja-tem-conta a:hover {
+    text-decoration: underline;
+}
+
+/* Mensagens de erro */
+.campo.erro input {
+    border-color: #ff4444;
+}
+
+.mensagem-erro {
+    background-color: #ffdddd;
+    color: #d8000c;
+    border: 1px solid #ffc8c8;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.campo.erro .mensagem-erro {
+    display: block;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #formulario-cadastro {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .grupo-campos {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .botoes-form {
+        flex-direction: column;
+    }
+    
+    #formulario-cadastro h1 {
+        font-size: 24px;
+    }
+} 

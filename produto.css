@@ -232,3 +232,459 @@ body.modo-carrinho #carrinho {
 body.modo-carrinho .produto-detalhe {
   display: none;
 }
+
+/* ESTILOS ESPECÍFICOS PARA CAMISETA */
+.tamanhos h3 {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 16px;
+}
+
+.opcoes-tamanho {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.opcoes-tamanho input[type="radio"] {
+    display: none;
+}
+
+.opcoes-tamanho .opcao-tamanho {
+    display: inline-block;
+    background-color: #f5f5f5;
+    border: 2px solid #ddd;
+    padding: 12px 20px;
+    margin-right: 0;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    min-width: 50px;
+    transition: all 0.3s ease;
+}
+
+.opcoes-tamanho .opcao-tamanho:hover {
+    background-color: #e9e9e9;
+    border-color: #0af;
+}
+
+.opcoes-tamanho input[type="radio"]:checked + .opcao-tamanho {
+    background-color: #0af;
+    color: white;
+    border-color: #0af;
+    transform: scale(1.05);
+}
+
+.aviso-tamanho {
+    color: #ff6b6b;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Controles de quantidade */
+.controle-quantidade {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.controle-quantidade button {
+    width: 40px;
+    height: 40px;
+    background-color: #0af;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.controle-quantidade button:hover {
+    background-color: #0099cc;
+}
+
+.controle-quantidade input {
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.controle-quantidade input:focus {
+    outline: none;
+    border-color: #0af;
+}
+
+/* Botões desabilitados */
+#botao-comprar-detalhado:disabled,
+#botao-adicionar-carrinho:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+#botao-comprar-detalhado:disabled:hover,
+#botao-adicionar-carrinho:disabled:hover {
+    background-color: #ccc;
+}
+
+/* Informações adicionais */
+.info-adicional {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid #0af;
+}
+
+.info-adicional h3 {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 16px;
+}
+
+.info-adicional ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-adicional li {
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 14px;
+}
+
+/* Responsividade para camiseta */
+@media (max-width: 768px) {
+    .produto-detalhe {
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 100px;
+    }
+    
+    .img-principal img {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .opcoes-tamanho {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .opcoes-tamanho .opcao-tamanho {
+        min-width: 60px;
+    }
+    
+    .controle-quantidade {
+        justify-content: center;
+    }
+}
+
+/* SEÇÃO DE COMENTÁRIOS */
+#comentarios {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.container-comentarios {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.container-comentarios h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 24px;
+}
+
+/* Estatísticas de avaliação */
+.estatisticas-avaliacao {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.media-geral {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.estrelas {
+    display: flex;
+    gap: 2px;
+}
+
+.estrela {
+    font-size: 20px;
+    color: #ffd700;
+}
+
+.nota-media {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.total-avaliacoes {
+    color: #666;
+    font-size: 14px;
+}
+
+/* Formulário de comentário */
+.form-comentario {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.form-comentario h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.avaliacao-estrelas {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.estrelas-input {
+    display: flex;
+    gap: 5px;
+}
+
+.estrelas-input input[type="radio"] {
+    display: none;
+}
+
+.estrelas-input label {
+    font-size: 24px;
+    cursor: pointer;
+    color: #ddd;
+    transition: color 0.3s;
+}
+
+.estrelas-input label:hover,
+.estrelas-input label:hover ~ label {
+    color: #ffd700;
+}
+
+.estrelas-input input[type="radio"]:checked ~ label {
+    color: #ffd700;
+}
+
+.estrelas-input input[type="radio"]:checked + label {
+    color: #ffd700;
+}
+
+.campo-comentario {
+    margin-bottom: 20px;
+}
+
+.campo-comentario label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.campo-comentario input,
+.campo-comentario textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.campo-comentario input:focus,
+.campo-comentario textarea:focus {
+    outline: none;
+    border-color: #0af;
+}
+
+.campo-comentario textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.campo-foto {
+    margin-bottom: 20px;
+}
+
+.campo-foto label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.campo-foto input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+    cursor: pointer;
+}
+
+.campo-foto small {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+    font-size: 12px;
+}
+
+#enviar-comentario {
+    background-color: #0af;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#enviar-comentario:hover {
+    background-color: #0099cc;
+}
+
+/* Lista de comentários */
+.lista-comentarios h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.filtros {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.filtro {
+    padding: 8px 15px;
+    border: 2px solid #ddd;
+    background-color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 14px;
+}
+
+.filtro:hover {
+    border-color: #0af;
+    color: #0af;
+}
+
+.filtro.ativo {
+    background-color: #0af;
+    color: white;
+    border-color: #0af;
+}
+
+/* Comentários individuais */
+.comentario {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+}
+
+.comentario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.comentario-nome {
+    font-weight: bold;
+    color: #333;
+}
+
+.comentario-data {
+    color: #666;
+    font-size: 12px;
+}
+
+.comentario-estrelas {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 10px;
+}
+
+.comentario-estrelas .estrela {
+    font-size: 16px;
+}
+
+.comentario-texto {
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.comentario-foto {
+    max-width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade para comentários */
+@media (max-width: 768px) {
+    #comentarios {
+        padding: 10px;
+    }
+    
+    .container-comentarios {
+        padding: 20px;
+    }
+    
+    .media-geral {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .avaliacao-estrelas {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .filtros {
+        justify-content: center;
+    }
+    
+    .comentario-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}

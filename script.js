@@ -14,31 +14,58 @@ function atualizarContador() {
 }
 
 // Lógica do carrinho no index.html
+const botoesAdicionar = document.querySelectorAll('.botao-adicionar-carrinho');
+botoesAdicionar.forEach(botao => {
+  botao.addEventListener('click', (e) => {
+    e.stopPropagation();
+    adicionarAoCarrinho(botao);
+    botao.classList.add('feedback');
+    setTimeout(() => botao.classList.remove('feedback'), 400);
+  });
+});
+
 const botoesComprar = document.querySelectorAll('.botao-comprar');
 botoesComprar.forEach(botao => {
   botao.addEventListener('click', () => {
-    const nome = botao.getAttribute('data-nome');
-    const preco = parseFloat(botao.getAttribute('data-preco'));
+    adicionarAoCarrinho(botao);
+    carrinho.classList.add('ativo');
+    body.classList.add('modo-carrinho');
+  });
+});
 
-    const item = document.createElement('li');
-    item.innerHTML = `
-      ${nome} - R$ ${preco.toFixed(2)}
-      <button class="botao-remover">🗑️</button>
-    `;
+// Função para adicionar item ao carrinho
+function adicionarAoCarrinho(botao) {
+  const nome = botao.getAttribute('data-nome');
+  const preco = parseFloat(botao.getAttribute('data-preco'));
 
-    item.querySelector('.botao-remover').addEventListener('click', () => {
-      total -= preco;
-      item.remove();
-      totalCarrinho.innerHTML = `<strong>Total:</strong> R$ ${total.toFixed(2)}`;
-      atualizarContador();
-    });
+  const itemExistente = Array.from(listaCarrinho.children).find(
+    item => item.getAttribute('data-nome') === nome
+  );
 
-    listaCarrinho.appendChild(item);
-    total += preco;
+  if (itemExistente) {
+    console.log("Item já está no carrinho.");
+    return; 
+  }
+
+  const item = document.createElement('li');
+  item.setAttribute('data-nome', nome);
+  item.innerHTML = `
+    ${nome} - R$ ${preco.toFixed(2)}
+    <button class="botao-remover">🗑️</button>
+  `;
+
+  item.querySelector('.botao-remover').addEventListener('click', () => {
+    total -= preco;
+    item.remove();
     totalCarrinho.innerHTML = `<strong>Total:</strong> R$ ${total.toFixed(2)}`;
     atualizarContador();
   });
-});
+
+  listaCarrinho.appendChild(item);
+  total += preco;
+  totalCarrinho.innerHTML = `<strong>Total:</strong> R$ ${total.toFixed(2)}`;
+  atualizarContador();
+}
 
 // Abrir/Fechar carrinho
 iconeCarrinho?.addEventListener('click', () => {
@@ -138,3 +165,79 @@ botaoComprarAgora?.addEventListener('click', () => {
   carrinho.classList.add('ativo');
   body.classList.add('modo-carrinho');
 });
+
+document.querySelectorAll('.categoria-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.categoria-btn').forEach(b => b.classList.remove('ativo'));
+    this.classList.add('ativo');
+    const categoria = this.getAttribute('data-categoria');
+    document.querySelectorAll('.produto').forEach(prod => {
+      if (categoria === 'todos') {
+        prod.style.display = '';
+      } else if (prod.getAttribute('data-categoria') === categoria) {
+        prod.style.display = '';
+      } else {
+        prod.style.display = 'none';
+      }
+    });
+  });
+});
+
+function rastrearPedido() {
+  const codigo = document.getElementById('codigo-pedido').value.trim();
+  const statusDiv = document.getElementById('status-pedido');
+  if (!codigo) {
+    statusDiv.innerHTML = '<span style="color:red;">Digite o número do pedido.</span>';
+    return;
+  }
+  // Simulação de status
+  statusDiv.innerHTML = `<b>Status do pedido ${codigo}:</b> <br>Em separação no estoque. <br>Previsão de entrega: 3 dias úteis.`;
+}
+
+function calcularFrete() {
+  const cep = document.getElementById('cep').value.trim();
+  const resultado = document.getElementById('resultado-frete');
+  if (!cep) {
+    resultado.innerHTML = '<span style="color:red;">Digite o CEP.</span>';
+    return;
+  }
+  // Simulação de cálculo
+  let frete = 25;
+  if (cep.startsWith('11')) frete = 10;
+  if (cep.startsWith('22')) frete = 15;
+  resultado.innerHTML = `
+    <b>Frete:</b> R$ ${frete},00<br>
+    <b>Pagamento à vista:</b> 10% de desconto<br>
+    <b>Cartão em até 12x:</b> Valor com taxa: R$ ${(100 + frete) * 1.08} (8% de taxa)
+  `;
+}
+
+// Função para atualizar o carrinho visual a partir do localStorage
+function atualizarCarrinhoVisual() {
+  const listaCarrinho = document.getElementById('lista-carrinho');
+  const contadorCarrinho = document.getElementById('contador-carrinho');
+  const totalCarrinho = document.getElementById('total-carrinho');
+  if (!listaCarrinho || !contadorCarrinho || !totalCarrinho) return;
+  let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+  listaCarrinho.innerHTML = '';
+  let total = 0;
+  carrinho.forEach((item, idx) => {
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <img src="${item.imagem}" style="width:40px;vertical-align:middle;border-radius:4px;margin-right:8px;">
+      ${item.nome} - ${item.cor} - ${item.tamanho} - R$ ${item.preco.toFixed(2)}
+      <button class="botao-remover">🗑️</button>
+    `;
+    li.querySelector('.botao-remover').addEventListener('click', function() {
+      carrinho.splice(idx, 1);
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      atualizarCarrinhoVisual();
+    });
+    listaCarrinho.appendChild(li);
+    total += item.preco;
+  });
+  contadorCarrinho.textContent = carrinho.length;
+  totalCarrinho.innerHTML = `<strong>Total:</strong> R$ ${total.toFixed(2)}`;
+}
+
+document.addEventListener('DOMContentLoaded', atualizarCarrinhoVisual);
