@@ -1,29 +1,29 @@
-# 🛍️ Loja Online com Painel Administrativo
+# Loja Online com Painel Administrativo
 
 Sistema de loja virtual com painel administrativo completo feito em PHP e MySQL. Permite cadastro de produtos com múltiplas imagens por cor, gerenciamento de estoque, usuários e responsividade para dispositivos móveis.
 
 ---
 
-## 📸 Demonstrações
+## Demonstrações
 
-### 🧑‍💻 Painel do Cliente (Desktop)
+### Painel do Cliente (Desktop)
 ![Cliente Desktop](screenshots/Cliente.png)
 
-### 📱 Painel do Cliente (Mobile)
+### Painel do Cliente (Mobile)
 ![Cliente Mobile](screenshots/Cliente-mobile.png)
 
-### 👨‍💼 Painel do Dono da Loja
+### Painel do Dono da Loja
 ![Painel do Dono](screenshots/Painel-dono.png)
 
-### 📦 Visualização de Produtos
+### Visualização de Produtos
 ![Produtos](screenshots/Produtos.png)
 
-### 👥 Gerenciamento de Usuários
+### Gerenciamento de Usuários
 ![Usuários](screenshots/Usuarios.png)
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 - Cadastro de produtos com imagem principal e múltiplas imagens por cor (JSON).
 - Controle de estoque, tamanhos e cores.
@@ -34,12 +34,12 @@ Sistema de loja virtual com painel administrativo completo feito em PHP e MySQL.
 
 ---
 
-## 🚀 Como rodar localmente
+## Como rodar localmente
 
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/gustavomazur/loja.oline.git
+git clone https://github.com/gustavomazur/Loja_online.git
 
 2. Importe o banco de dados MySQL (arquivo .sql se disponível).
 
@@ -55,7 +55,7 @@ http://localhost/loja.oline
 \
 
 Estrutura básica
-📦 loja.oline/
+loja.oline/
 ├── painel.php
 ├── painel_produtos.php
 ├── painel_usuarios.php
@@ -80,7 +80,7 @@ Tecnologias
 -CSS3
 -JavaScript
 
-💼Autor
+Autor
 Gustavo-Bueno-Mazur
 
 🔗LinkedIn
