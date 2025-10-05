@@ -47,22 +47,22 @@ Objetivo do Projeto
 
 Estrutura básica
 loja.oline/
-├── painel.php
-├── painel_produtos.php
-├── painel_usuarios.php
-├── cadastro.php
-├── login.php
-├── index.php
-├── conexao.php
-├── processa_produto.php
-├── style.css
-├── painel.css
-├── screenshots/        
-│   ├── Cliente.png
-│   ├── Cliente-mobile.png
-│   ├── Painel-dono.png
-│   ├── Produtos.png
-│   └── Usuarios.png
+- ├── painel.php
+- ├── painel_produtos.php
+- ├── painel_usuarios.php
+- ├── cadastro.php
+- ├── login.php
+- ├── index.php
+- ├── conexao.php
+- ├── processa_produto.php
+- ├── style.css
+- ├── painel.css
+- ├── screenshots/        
+- │   ├── Cliente.png
+- │   ├── Cliente-mobile.png
+- │   ├── Painel-dono.png
+- │   ├── Produtos.png
+- │   └── Usuarios.png
 
 Tecnologias Atuais
 -PHP
